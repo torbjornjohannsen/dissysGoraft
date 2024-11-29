@@ -37,7 +37,7 @@ this stress test.
 Try out the builtin distributed key-value API.
 
 ```console
-cd cmd/kvapi && go build
+cd cmd/kvapi && go build &&
 rm *.dat
 ```
 

@@ -24,8 +24,8 @@ Read more about the details of what it tests [in the
 README](./cmd/stress/README.md).
 
 ```console
-$ cd cmd/stress
-$ go run main.go util.go
+cd cmd/stress
+go run main.go util.go
 ```
 
 With the `go-deadlock` package turned off and the default `sync`
@@ -37,26 +37,26 @@ this stress test.
 Try out the builtin distributed key-value API.
 
 ```console
-$ cd cmd/kvapi && go build
-$ rm *.dat
+cd cmd/kvapi && go build
+rm *.dat
 ```
 
 ## Terminal 1
 
 ```console
-$ ./kvapi --node 0 --http :2021 --cluster "0,:3030;1,:3031;2,:3032"
+./kvapi --node 0 --http :2021 --cluster "0,:3030;1,:3031;2,:3032"
 ```
 
 ## Terminal 2
 
 ```console
-$ ./kvapi --node 1 --http :2022 --cluster "0,:3030;1,:3031;2,:3032"
+./kvapi --node 1 --http :2022 --cluster "0,:3030;1,:3031;2,:3032"
 ```
 
 ## Terminal 3
 
 ```console
-$ ./kvapi --node 2 --http :2023 --cluster "0,:3030;1,:3031;2,:3032"
+./kvapi --node 2 --http :2023 --cluster "0,:3030;1,:3031;2,:3032"
 ```
 
 ## Terminal 4
@@ -68,13 +68,13 @@ message to each server until you find the leader.
 To set a key:
 
 ```console
-$ curl http://localhost:2020/set?key=y&value=hello
+curl http://localhost:2020/set?key=y&value=hello
 ```
 
 To get a key:
 
 ```console
-$ curl http://localhost:2020/get\?key\=y
+curl http://localhost:2020/get\?key\=y
 ```
 
 # References

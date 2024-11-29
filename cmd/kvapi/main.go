@@ -137,6 +137,7 @@ func (hs httpServer) getHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		var results []goraft.ApplyResult
 		results, err = hs.raft.Apply([][]byte{encodeCommand(c)})
+		log.Println("Got result")
 		if err == nil {
 			if len(results) != 1 {
 				err = fmt.Errorf("Expected single response from Raft, got: %d.", len(results))
@@ -165,6 +166,7 @@ func (hs httpServer) getHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		written += n
+
 	}
 }
 
@@ -249,6 +251,7 @@ func main() {
 	sm.server = cfg.index
 
 	s := goraft.NewServer(cfg.cluster, &sm, ".", cfg.index)
+	s.Debug = true
 	go s.Start()
 
 	hs := httpServer{s, &db}

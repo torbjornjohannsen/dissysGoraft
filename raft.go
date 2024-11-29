@@ -13,6 +13,7 @@ import (
 	"os"
 	"path"
 	"sync"
+
 	//sync "github.com/sasha-s/go-deadlock"
 	"time"
 )
@@ -236,9 +237,9 @@ func NewServer(
 	// modifying it in this server.
 	var cluster []ClusterMember
 	for _, c := range clusterConfig {
-		if c.Id == 0 {
+		/* if c.Id == 0 {
 			panic("Id must not be 0.")
-		}
+		} */
 		cluster = append(cluster, c)
 	}
 

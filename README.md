@@ -71,12 +71,6 @@ To set a key:
 curl http://localhost:2020/set?key=y&value=hello
 ```
 
-To get a key:
-
-```console
-curl http://localhost:2020/get\?key\=y
-```
-
 # References
 
 * [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf): The Raft paper.
